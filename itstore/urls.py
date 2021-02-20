@@ -29,6 +29,7 @@ from blog.sitemap import PostSitemap
 
 from config.views import LinkListView
 from comment.views import CommentView
+from files import views
 
 from itstore.custom_site import custom_site
 
@@ -45,5 +46,17 @@ urlpatterns = [
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
     re_path(r'^category-autocomplete/$', CategoryAutocomplete.as_view(), name='category-autocomplete'),
     re_path(r'^tag-autocomplete/$', TagAutocomplete.as_view(), name='tag-autocomplete'),
-    path('admin/', admin.site.urls),
+    path('xxadmin/', admin.site.urls),
+    path('filog', views.login),
+    path('findex', views.main),
+    path('deleteFiles', views.deleteFiles),
+    path('renameFiles', views.renameFiles),
+    path('copyFiles', views.copyFiles),
+    path('downloadFiles', views.downloadFiles),
+    path('uploadFiles', views.uploadFiles),
+    path('previewFiles', views.previewFiles),
+    path('checkPassword', views.checkPassword),
+    path('error', views.error),
+    path('mkdir', views.mkdir),
+    path('getDirContent', views.getDirContent),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
